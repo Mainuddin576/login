@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1f3a5f, #3d6fb4);
+      padding: 16px;
+    }
+    .card {
+      background: #fff;
+      width: 100%;
+      max-width: 360px;
+      padding: 28px 24px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+    h1 { margin: 0 0 4px; text-align: center; color: #1f3a5f; font-size: 24px; }
+    p.sub { margin: 0 0 20px; text-align: center; color: #666; font-size: 14px; }
+    label { display: block; margin: 12px 0 4px; font-size: 14px; color: #333; }
+    input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+    input:focus { outline: none; border-color: #1f3a5f; box-shadow: 0 0 0 2px rgba(31, 58, 95, 0.2); }
+    .row { display: flex; justify-content: space-between; align-items: center; margin: 12px 0 18px; font-size: 13px; }
+    .row a { color: #1f3a5f; text-decoration: none; }
+    button {
+      width: 100%;
+      padding: 11px;
+      background: #1f3a5f;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover { background: #2c5282; }
+    #msg { margin-top: 14px; text-align: center; font-size: 14px; min-height: 18px; }
+    .signup { margin-top: 16px; text-align: center; font-size: 14px; color: #555; }
+    .signup a { color: #1f3a5f; }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Welcome Back</h1>
+    <p class="sub">Please login to continue</p>
+
+    <form id="loginForm">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="you@example.com" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter password" minlength="6" required>
+
+      <div class="row">
+        <label style="margin:0;"><input type="checkbox" id="remember"> Remember me</label>
+        <a href="#">Forgot password?</a>
+      </div>
+
+      <button type="submit">Login</button>
+      <div id="msg"></div>
+    </form>
+
+    <div class="signup">Don't have an account? <a href="#">Sign up</a></div>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = document.getElementById('email').value;
+      var msg = document.getElementById('msg');
+      msg.style.color = 'green';
+      msg.textContent = 'Login successful for ' + email + ' (demo only)';
+    });
+  </script>
+
+</body>
+</html>
